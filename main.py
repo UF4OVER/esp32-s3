@@ -2,10 +2,11 @@ import time
 
 import machine
 
-a = machine.Pin(2)
+led = machine.Pin(2, machine.Pin.OUT)
 while 1:
-
-    a.on
-    print("on")
+    led.on()
+    print("LED is on.")
     time.sleep(1)
-    a.off
+    led.off()
+    print("LED is off.")
+    time.sleep(1)
