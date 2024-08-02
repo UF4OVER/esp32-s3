@@ -3,6 +3,9 @@ import time
 import machine
 
 a = machine.Pin(2)
-a.value(1)
-time.sleep(1)
-a.value(0)
+while 1:
+
+    a.on
+    print("on")
+    time.sleep(1)
+    a.off
