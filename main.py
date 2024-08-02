@@ -1,5 +1,10 @@
-import machine
+import time
 
-pin2 = machine.Pin(15)
+print("Running main.py")
 
-pin2.value(0)
+# 示例功能：每隔一秒打印一条消息
+for i in range(5):
+    print("Countdown: ", 5 - i)
+    time.sleep(1)
+
+print("End of main.py")
