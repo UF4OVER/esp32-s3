@@ -1,5 +1,8 @@
-from machine import Pin, UART
 import time
+
+from machine import UART
+
+
 
 class HF024(object):
     """

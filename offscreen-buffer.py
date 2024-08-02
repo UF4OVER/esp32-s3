@@ -1,5 +1,8 @@
-from machine import SPI,Pin
+from machine import SPI, Pin
+
 from ST7735 import TFT
+
+
 spi = SPI(2, baudrate=20000000, polarity=0, phase=0, sck=Pin(46), mosi=Pin(45), miso=Pin(0))
 tft=TFT(spi,43,42,15)
 tft.initr()

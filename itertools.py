@@ -1,7 +1,9 @@
+import time
+
 import machine
 import time
 
-
+import machine
 
 j1 = machine.Pin(2, machine.Pin.OUT)
 j2 = machine.Pin(3, machine.Pin.OUT)

@@ -1,7 +1,10 @@
 import time
+
 from ST7735 import TFT
-from sysfont import sysfont
-from machine import SPI, Pin, ADC
+
+from machine import SPI, Pin
+
+from ST7735 import TFT
 
 
 spi = SPI(2, baudrate=2000000, polarity=0, phase=0, sck=Pin(16), mosi=Pin(15))

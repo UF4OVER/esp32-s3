@@ -28,7 +28,7 @@ __version__ = "0.2.1"
 
 # pylint: disable=import-error
 import ustruct
-from machine import I2C, Pin
+
 from micropython import const
 # pylint: enable=import-error
 

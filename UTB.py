@@ -19,28 +19,11 @@ read_angle_cor = 0xd4
 
 
 class UBT_SERVO:
-
     def __init__(self, uart, id):
-        """
-
-        :param uart: 串口
-        :param id: 建议1-240，0则是广播所有的舵机
-        """
+        if uart is None:
+            raise ValueError("UART cannot be None.")
         self.uart = uart
         self.id = id
-
-    def init(self):
-        """
-        舵机回中
-          """
-        
-        _check_num = self.id + sport + 0x79
-        
-        self.uart.write(bytearray([0XFA, 0XAF, self.id, sport, 0x79, 0, 0, 0, _check_num, 0XED]))
-        self.uart.write("\r\n")
-        
-        time.sleep_us(10)
-        
     def servo_do(self, Terminal, Time, Achtime8l, Achtime8H):
         """
           :param Terminal: 位置：0-240°
@@ -57,27 +40,17 @@ class UBT_SERVO:
         # 发送数据包
 
         self.uart.write(bytearray([0XFA, 0XAF, self.id, sport, Terminal, Time, Achtime8l, Achtime8H, _check_num, 0XED]))
-        self.uart.write("\r\n")
-        
-        time.sleep_us(10)
+        self.uart.write(b'\r\n')
+
         
     def change_id(self, New_Id):
         
         _checknumber = self.id + change_id + New_Id
 
         self.uart.write(bytearray([HEAD_one, HEAD_two, self.id, change_id, 0X00, New_Id, 0x00, 0x00, _checknumber, 0XED]))
-        self.uart.write("\r\n")
-
-    def led(self, led):
-        """
-
-        :param led: 1:led闪烁
-                    2:led灯灭
-        """
-        _checknumber = self.id + led + led_on_off
-
-        self.uart.write(bytearray([HEAD_one, HEAD_two, self.id, led_on_off, led, 0x00, 0x00, 0x00, _checknumber, 0XED]))
-        self.uart.write("\r\n")
+        self.uart.write(b'\r\n')
+        time.sleep(0.0004)
+        return self.uart.read()
 
     def read_angle(self):
         
@@ -85,7 +58,7 @@ class UBT_SERVO:
 
         self.uart.write(
             bytearray([HEAD_one, HEAD_two, self.id, read_angle, 0X00, 0x00, 0x00, 0x00, _checknumber, 0XED]))
-        self.uart.write("\r\n")
+        self.uart.write(b'\r\n')
 
         time.sleep_us(400)
         

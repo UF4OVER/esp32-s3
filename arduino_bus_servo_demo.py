@@ -1,9 +1,12 @@
 #!/usr/bin/python3 
 # -*- coding: utf-8 -*-
-import time
+
 import datetime
-import platform 
+import platform
+import time
+
 import serial
+
 global SerialHdl
 
 #////////////////  宏定义 勿改动 //////////////////

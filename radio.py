@@ -11,8 +11,12 @@ try:
     from esp import espnow
 except:
     import espnow
-from ubinascii import hexlify,unhexlify
+
 import network
+
+import network
+from ubinascii import hexlify, unhexlify
+
 
 class ESPNow(espnow.ESPNow):
     def __init__(self,channel=0,txpower=20):

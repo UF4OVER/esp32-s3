@@ -1,5 +1,7 @@
+import time
+
 import machine
-import time 
+
 import UTB
 
 adc1 = machine.ADC(machine.Pin(13))

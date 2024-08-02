@@ -2,9 +2,11 @@
 # Translated by Guy Carver from the ST7735 sample code.
 # Modirfied for micropython-esp32 by boochow
 
-import machine
+
 import time
 from math import sqrt
+
+import machine
 
 # TFTRotations and TFTRGB are bits to set
 # on MADCTL to control display rotation/color layout

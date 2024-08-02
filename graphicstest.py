@@ -1,8 +1,14 @@
+<< << << < HEAD
+== == == =
+import math
+import time
+
+from machine import SPI, Pin
+
 from ST7735 import TFT
 from sysfont import sysfont
-from machine import SPI,Pin
-import time
-import math
+
+>> >> >> > c912946(我的仓库：第一次提交)
 spi = SPI(2, baudrate=2000000, polarity=0, phase=0, sck=Pin(17), mosi=Pin(16))
 tft=TFT(spi,42,41,15)
 tft.initr()
