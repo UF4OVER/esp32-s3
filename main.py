@@ -10,6 +10,6 @@ while True:
     for i in range(0, 255):
         rgb.fill((255 - i, 0, i))
         rgb.write()
-    for i in range(0, 255):
-        rgb.fill((0, i, 255 - i))
-        rgb.write()
+    # for i in range(0, 255):
+    #     rgb.fill((0, i, 255 - i))
+    #     rgb.write()
