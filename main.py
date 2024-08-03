@@ -1,3 +1,5 @@
+import time
+
 import machine
 import neopixel
 
@@ -8,39 +10,50 @@ while True:
     for i in range(0, 255):
         rgb.fill((i, 0, 0))
         rgb.write()
+        time.sleep(0.01)
 
     for i in range(0, 255):
         rgb.fill((0, i, 0))
         rgb.write()
+        time.sleep(0.01)
 
     for i in range(0, 255):
         rgb.fill((0, 0, i))
         rgb.write()
+        time.sleep(0.01)
 
     for i in range(0, 255):
         rgb.fill((255 - i, 0, 0))
         rgb.write()
+        time.sleep(0.01)
 
     for i in range(0, 255):
         rgb.fill((0, 255 - i, 0))
         rgb.write()
+        time.sleep(0.01)
 
     for i in range(0, 255):
         rgb.fill((0, 0, 255 - i))
         rgb.write()
+        time.sleep(0.01)
 
     for i in range(0, 255):
         rgb.fill((255 - i, 255 - i, 0))
         rgb.write()
+        time.sleep(0.01)
+
 
     for i in range(0, 255):
         rgb.fill((255 - i, 0, 255 - i))
         rgb.write()
+        time.sleep(0.01)
 
     for i in range(0, 255):
         rgb.fill((0, 255 - i, 255 - i))
         rgb.write()
+        time.sleep(0.01)
 
     for i in range(0, 255):
         rgb.fill((255 - i, 255 - i, 255 - i))
         rgb.write()
+        time.sleep(0.01)
