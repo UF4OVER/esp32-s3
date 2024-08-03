@@ -1,12 +1,6 @@
-import time
-
 import machine
+import neopixel
 
-led = machine.Pin(2, machine.Pin.OUT)
-while 1:
-    led.on()
-    print("LED is on.")
-    time.sleep(1)
-    led.off()
-    print("LED is off.")
-    time.sleep(1)
+rgb = neopixel.NeoPixel(machine.Pin(48), 1)
+rgb.fill((255, 0, 0))
+rgb.write()
