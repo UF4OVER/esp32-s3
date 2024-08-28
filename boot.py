@@ -1,6 +1,5 @@
 import gc
 
-import machine
 import network
 import urequests as requests
 
@@ -26,30 +25,35 @@ def connect_wlan(ssid, password):
 SSID = "test_div"
 PASSWORD = "00000000"
 
+
 gc.collect()
 
 try:
     connect_wlan(SSID, PASSWORD)
 except Exception as e:
     print("WLAN connection failed:", e)
-t
+    # 在这里可以添加额外的处理逻辑，如重试或通知用户
+    raise  # 抛出异常以终止程序执行
 gc.collect()
 
 url = 'https://gitee.com/uf4/esp32-s33/raw/master/main.py'
-response = requests.get(url)
-print("ok")
 
-chunk_size = 100  #
+# Get the remote file's content
+remote_response = requests.get(url)
+
+print("Updating main.py...")
+chunk_size = 100
+
 
 with open("main.py", "w") as f:
-    content = response.content
+    content = remote_response.content
     position = 0
 
     while position < len(content):
         chunk = content[position:position + chunk_size]
-        f.write(chunk.decode())  # 写文件
+        f.write(chunk.decode())  # Write each chunk to the file
         position += chunk_size
-        gc.collect()  # 回收内存
+        gc.collect()
 
 print("main.py updated successfully.")
-machine.reset()
+exec(open("main.py").read())
